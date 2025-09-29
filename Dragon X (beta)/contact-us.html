@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا | Dragon X</title>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Sweetalert js -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+    .contact-input {
+      background-color: #1e1e1e;
+      border: 2px solid #333;
+      transition: all 0.3s;
+    }
+    .contact-input:focus {
+      border-color: #ff0000;
+      box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2);
+    }
+    .contact-card {
+      background: linear-gradient(135deg, #1e1e1e 0%, #2a0a0a 100%);
+      border-top: 4px solid #ff0000;
+    }
+    input, textarea, button{
+        outline: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-black/50 backdrop-blur-md py-4 px-6 fixed w-full z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2 space-x-reverse">
+        <i data-feather="code" class="text-red-500"></i>
+        <span class="text-xl font-bold text-white">Dragon X (beta)</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8 space-x-reverse">
+        <a href="index.html" class="text-white hover:text-red-500 line">الرئيسية</a>
+        <a href="equation-solver.html" class="text-white hover:text-red-500 line">حل المعادلات</a>
+        <a href="solution-steps.html" class="text-white hover:text-red-500 line">خطوات الحل</a>
+        <a href="about-us.html" class="text-white hover:text-red-500 line">عنّا</a>
+        <a href="contact-us.html" class="text-red-500 font-bold line">تواصل معنا</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white" id="mobile-menu-button">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-black/80 py-4 px-6" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="text-white hover:text-red-500">الرئيسية</a>
+        <a href="equation-solver.html" class="text-white hover:text-red-500">حل المعادلات</a>
+        <a href="solution-steps.html" class="text-white hover:text-red-500">خطوات الحل</a>
+        <a href="about-us.html" class="text-white hover:text-red-500">عنّا</a>
+        <a href="contact-us.html" class="text-red-500 font-bold">تواصل معنا</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="min-h-screen pt-24 pb-16">
+    <div class="container mx-auto px-6">
+      <h1 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">تواصل معنا</h1>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Contact Form -->
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <div class="contact-card rounded-xl p-6 h-full">
+            <h2 class="text-2xl font-bold mb-6">أبلغ عن خطأ في التطبيق</h2>
+            <form id="contact-form">
+              <div class="mb-6">
+                <label for="name" class="block text-lg font-medium mb-3">الاسم</label>
+                <input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-lg text-white" required>
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block text-lg font-medium mb-3">البريد الإلكتروني</label>
+                <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg text-white" required>
+              </div>
+
+              <div class="mb-6">
+                <label for="message" class="block text-lg font-medium mb-3">تفاصيل الخطأ</label>
+                <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 rounded-lg text-white" required></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center transition duration-300">
+                إرسال الرسالة
+                <i data-feather="send" class="ml-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <div class="contact-card rounded-xl p-6 h-full">
+            <h2 class="text-2xl font-bold mb-6">معلومات التواصل</h2>
+            <div class="space-y-6">
+
+              <!-- Email -->
+              <div class="flex items-start space-x-4 space-x-reverse">
+                <div class="text-red-500 mt-1">
+                  <i data-feather="mail"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">البريد الإلكتروني</h3>
+                  <p class="text-gray-300">dragoncoding31@gmail.com</p>
+                </div>
+              </div>
+
+              <!-- Website -->
+              <div class="flex items-start space-x-4 space-x-reverse">
+                <div class="text-red-500 mt-1">
+                  <i data-feather="globe"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">الموقع الإلكتروني</h3>
+                  <p class="text-gray-300"><a target="_blank" href="https://dragon-coding-team-website.netlify.app/">https://dragon-coding-team-website.netlify.app</a></p>
+                </div>
+              </div>
+
+              <!-- Social Media -->
+              <div class="flex space-x-6 space-x-reverse">
+                <a href="https://dragon-coding-team-website.netlify.app/" target="_blank" class="text-gray-400 hover:text-red-500 text-2xl">
+                  <i class="fa-solid fa-globe"></i>
+                </a>
+                <a href="https://discord.gg/9yubUP25" target="_blank" class="text-gray-400 hover:text-red-500 text-2xl">
+                  <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="https://www.tiktok.com/@dragon_coding_team?_t=ZS-8zGKGXVi3R1&_r=1" target="_blank" class="text-gray-400 hover:text-red-500 text-2xl">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <!-- Footer Logo -->
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 space-x-reverse">
+            <i data-feather="code" class="text-red-500"></i>
+            <span class="text-xl font-bold text-white">Dragon Coding</span>
+          </div>
+          <p class="text-gray-500 mt-2">نحو تعليم رياضي أفضل</p>
+        </div>
+
+        <!-- Footer Social -->
+        <div class="flex space-x-6 space-x-reverse">
+          <a href="https://dragon-coding-team-website.netlify.app/" target="_blank" class="text-gray-400 hover:text-red-500 text-2xl">
+            <i class="fa-solid fa-globe"></i>
+          </a>
+          <a href="https://discord.gg/9yubUP25" target="_blank" class="text-gray-400 hover:text-red-500 text-2xl">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+          <a href="https://www.tiktok.com/@dragon_coding_team?_t=ZS-8zGKGXVi3R1&_r=1" target="_blank" class="text-gray-400 hover:text-red-500 text-2xl">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
+      <hr class="border-gray-800 my-6">
+
+      <div class="text-center text-gray-500">
+        <p>© 2025 Dragon Coding. جميع الحقوق محفوظة</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      feather.replace();
+    });
+
+    // EmailJS Configuration
+    (function() {
+        emailjs.init("9acgFub02F-Gl2a8W");
+      })();
+
+      // Contact form submission
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+
+        // Show loading state
+        submitButton.innerHTML = `
+          جاري الإرسال<span class="loading-dots">
+            <span>.</span><span>.</span><span>.</span>
+          </span>
+        `;
+        submitButton.disabled = true;
+
+        // Send message via EmailJS
+        emailjs.send("service_cy3qrww", "template_8fi0r3z", {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value
+        })
+        .then(() => {
+          Swal.fire({
+            title: "تم بنجاح",
+            icon: "success",
+            text: "تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا",
+            confirmButtonText: "حسناً"
+          });
+          this.reset(); // Reset form
+        })
+        .catch((error) => {
+          console.error("❌ خطأ:", error);
+          Swal.fire({
+            title: "حدث خطأ",
+            icon: "error",
+            text: "حصل خطأ أثناء إرسال الرسالة. حاول مرة تانية",
+            confirmButtonText: "حسناً"
+          });
+        })
+        .finally(() => {
+          // Reset button
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+        });
+      });
+
+    // Replace feather icons
+    feather.replace();
+  </script>
+</body>
+</html>
