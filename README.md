@@ -34,7 +34,7 @@
 
 | الصفحة الرئيسية | صفحة حل المعادلة |
 |-----------------|------------------|
-| ![الصفحة الرئيسية] (https://drive.google.com/uc?export=view&id=1LVKuxyev7fwmuIddJwkUSenuggU57SVZ) | ![صفحة حل المعادلة](screenshots/solve.png) |
+| ![الصفحة الرئيسية](https://drive.google.com/uc?export=view&id=1LVKuxyev7fwmuIddJwkUSenuggU57SVZ) | ![صفحة حل المعادلة](screenshots/solve.png) |
 
 | صفحة خطوات الشرح | صفحة حولنا | صفحة تواصل معنا |
 |------------------|------------|-----------------|
