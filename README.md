@@ -36,7 +36,7 @@
 
 | الصفحة الرئيسية | صفحة حل المعادلة |
 |-----------------|------------------|
-| ![الصفحة الرئيسية]([screenshots/home.png](https://drive.google.com/file/d/1LVKuxyev7fwmuIddJwkUSenuggU57SVZ/view?usp=drive_link)) | ![صفحة حل المعادلة](screenshots/solve.png) |
+| ![الصفحة الرئيسية](https://drive.google.com/file/d/1LVKuxyev7fwmuIddJwkUSenuggU57SVZ/view?usp=drive_link) | ![صفحة حل المعادلة](screenshots/solve.png) |
 
 | صفحة خطوات الشرح | صفحة حولنا | صفحة تواصل معنا |
 |------------------|------------|-----------------|
