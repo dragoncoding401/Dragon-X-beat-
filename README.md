@@ -17,7 +17,7 @@
 ## 🚀 التجربة
 
 تقدر تجرب التطبيق من هنا:  
-👉 [Dragon X](https://dragon-x.infinityfreeapp.com)
+👉 [Dragon X](https://dragon-x-beta.netlify.app/)
 
 ---
 
